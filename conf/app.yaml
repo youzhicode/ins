@@ -1,0 +1,12 @@
+base:
+  path: "log"
+
+logger:
+  name: system_log
+  level: DEBUG
+  file: debug.log
+
+  request:
+    name: request_log
+    level: INFO
+    file: requsts.log
