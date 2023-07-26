@@ -1,6 +1,7 @@
 import requests
 import os
 from datetime import datetime
+from core import configs
 
 
 
@@ -19,7 +20,8 @@ def get_fans():
     if req.status_code == 200:
         base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         log_path = os.path.join(base_path, 'log')
-        json_res = os.path.join(log_path, 'requests'+ datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ".json")
+        log_name = configs.get_log_file().format(datetime.now().strftime('%Y-%m-%d-%H:%M:%S'))
+        json_res = os.path.join(log_path, log_name)
         with open(json_res, 'w') as f:
             f.write(req.content.decode())
     else:

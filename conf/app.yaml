@@ -9,4 +9,5 @@ logger:
   request:
     name: request_log
     level: INFO
-    file: requsts.log
+    file: requsts-{0}.json
+    
